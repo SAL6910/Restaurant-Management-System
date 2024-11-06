@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-include("../connection/connect.php");
-error_reporting(0);
-session_start();
-if(empty($_SESSION["adm_id"]))
-{
-	header('location:index.php');
-}
-else
-{
+  include("../connection/connect.php");
+  error_reporting(0);
+  session_start();
+  if(empty($_SESSION["adm_id"])) {
+    header('location:index.php');
+  }
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Admin Panel</title>
+    <title>Painel de Administração</title>
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -31,73 +29,10 @@ else
     </div>
     
     <div id="main-wrapper">
-     
-        <div class="header">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
 
-            <div class="navbar-header">
-                    <a class="navbar-brand" href="dashboard.php">
-                        
-                        <span><img src="images/food-mania-logo.png" alt="homepage" class="dark-logo" /></span>
-                    </a>
-                </div>
-
-                <div class="navbar-collapse">
-                    <ul class="navbar-nav mr-auto mt-md-0">
-                    </ul>
-                    
-                       
-                      
-                      
-                    <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/bookingSystem/3.png" alt="user" class="profile-pic" /></a>
-                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
-                                <ul class="dropdown-user">
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+      <?php require_once 'admin_header.php'; ?>
+      <?php require_once 'left_sidebar.php'; ?>
       
-        <div class="left-sidebar">
-   
-            <div class="scroll-sidebar">
-       
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        <li class="nav-label">Home</li>
-                        <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
-                        </li>
-                        <li class="nav-label">Log</li>
-                        <li> <a href="all_users.php">  <span><i class="fa fa-user f-s-20 "></i></span><span>Users</span></a></li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_restaurant.php">All Restaurant</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
-                                
-                            </ul>
-                        </li>
-                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
-                                
-                            </ul>
-                        </li>
-						 <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Orders</span></a></li>
-                         
-                    </ul>
-                </nav>
-            
-            </div>
-           
-        </div>
     
         <div class="page-wrapper">
          
@@ -107,7 +42,7 @@ else
             <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Dashboard</h4>
+                                <h4 class="m-b-0 text-white">Painel</h4>
                             </div>
                      <div class="row">
                    
@@ -123,7 +58,7 @@ else
 													$rws=mysqli_num_rows($result);
 													
 													echo $rws;?></h2>
-                                    <p class="m-b-0">Restaurants</p>
+                                    <p class="m-b-0">Restaurantes</p>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +76,7 @@ else
 													$rws=mysqli_num_rows($result);
 													
 													echo $rws;?></h2>
-                                    <p class="m-b-0">Dishes</p>
+                                    <p class="m-b-0">Pratos</p>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +94,7 @@ else
 													$rws=mysqli_num_rows($result);
 													
 													echo $rws;?></h2>
-                                    <p class="m-b-0">Users</p>
+                                    <p class="m-b-0">Usuários</p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +112,7 @@ else
 													$rws=mysqli_num_rows($result);
 													
 													echo $rws;?></h2>
-                                    <p class="m-b-0">Orders</p>
+                                    <p class="m-b-0">Pedidos</p>
                                 </div>
                             </div>
                         </div>
@@ -198,6 +133,3 @@ else
 </body>
 
 </html>
-<?php
-}
-?>

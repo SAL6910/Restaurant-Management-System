@@ -1,0 +1,21 @@
+services:
+  php:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: docker.io/mysql:8.0
+    volumes:
+      - "./SQL/online_rest.sql:/docker-entrypoint-initdb.d/1.sql"
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: online_rest
+      MYSQL_ROOT_PASSWORD: admin
+
+volumes:
+  mysql-data:

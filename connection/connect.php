@@ -1,10 +1,10 @@
 <?php
 
 //main connection file for both admin & front end
-$servername = "localhost"; //server
-$username = "root"; //username
-$password = ""; //password
-$dbname = "online_rest";  //database
+$servername = "193.203.175.110"; //server
+$username = "u345511044_baiaofood"; //username
+$password = "b@iAofood!@#123"; //password
+$dbname = "u345511044_baiaofood_db";  //database
 
 // Create connection
 $db = mysqli_connect($servername, $username, $password, $dbname); // connecting 
